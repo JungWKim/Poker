@@ -16,7 +16,6 @@ trump neutral_card[3];
 person player, opponent;
 int opponent_choice[2], user_choice[2];
 short betting;
-int art;
 
 int main()
 {
