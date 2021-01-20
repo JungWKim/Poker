@@ -44,7 +44,7 @@ int main()
 					{
 						omaha_holdem(opponent_choice, user_choice);
 						omaha_holdem_betting(opponent_choice, user_choice, &betting);
-						if (omaha_holdem_result(opponent_choice, user_choice, betting) < 0) break;
+						if (omaha_holdem_result(opponent_choice, user_choice, neutral_card, betting) < 0) break;
 					}
 				}
 				else if (which_game == 2)

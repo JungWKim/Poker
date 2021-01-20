@@ -17,7 +17,7 @@ int straight(trump* card)
 	int cnt = 0;
 
 	for (int i = 0; i < 4; i++)
-		if (card[i].number + 1 == card[i + 1].number) cnt++;
+		if ((card[i].number + 1) == card[i + 1].number) cnt++;
 
 	if (cnt == 4) return 1;
 	else if (card[0].number == 1 &&

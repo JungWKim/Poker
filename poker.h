@@ -23,6 +23,6 @@ short numberShapeCompare(trump* opponent_card, trump* user_card, short opponent_
 
 void omaha_holdem(int* opponent_choice, int* user_choice);
 void omaha_holdem_betting(int* opponent_choice, int* user_choice, short* betting);
-short omaha_holdem_result(int* opponent_choice, int* user_choice, short y1);
+short omaha_holdem_result(int* opponent_choice, int* user_choice, trump* neutral_card, short y1);
 int omaha_combinations(trump* card);
 void seven_card_stud();

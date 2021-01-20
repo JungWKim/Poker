@@ -589,24 +589,24 @@ void omaha_holdem_betting(int* opponent_choice, int* user_choice, short* betting
 	}
 }
 
-short omaha_holdem_result(int* opponent_choice, int* user_choice, short y1)
+short omaha_holdem_result(int* opponent_choice, int* user_choice, trump* neutral_card, short y1)
 {
 	short opponent_point, user_point;
 	trump opponent_card[5], user_card[5];
 	char input;
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 2; i++)
 	{
-		if (i == 0)	  	 opponent_card[i] = card[opponent_choice[i]];
-		else if (i == 1) opponent_card[i] = card[opponent_choice[i]];
-		else			 opponent_card[i] = card[i + 6];
+		opponent_card[i] = card[opponent_choice[i]];
+		user_card[i] = card[user_choice[i] + 3];
+		opponent_card[i] = card[opponent_choice[i]];
+		user_card[i] = card[user_choice[i] + 3];
 	}
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 2; i < 5; i++)
 	{
-		if (i == 0)	  	 user_card[i] = card[user_choice[i]];
-		else if (i == 1) user_card[i] = card[user_choice[i]];
-		else			 user_card[i] = card[i + 6];
+		opponent_card[i] = card[i + 6];
+		user_card[i] = card[i + 6];
 	}
 
 	opponent_point = omaha_combinations(opponent_card);
@@ -778,16 +778,10 @@ short omaha_holdem_result(int* opponent_choice, int* user_choice, short y1)
 //user는 +3해야함
 int omaha_combinations(trump* card)
 {
-	short flush_flag, straight_flag, royal_flag, three_of_a_kind_flag;
-	short four_of_a_kind_flag, two_pair_flag, one_pair_flag, full_house_flag;
+	short flush_flag = 0, straight_flag = 0, royal_flag = 0, three_of_a_kind_flag = 0;
+	short four_of_a_kind_flag = 0, two_pair_flag = 0, one_pair_flag = 0, full_house_flag = 0;
 
 	sort(card);
-
-	card[0].number = 1;
-	card[1].number = 1;
-	card[2].number = 2;
-	card[3].number = 2;
-	card[4].number = 3;
 
 	flush_flag = flush(card);
 	straight_flag = straight(card);
