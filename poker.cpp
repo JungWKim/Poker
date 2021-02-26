@@ -135,7 +135,7 @@ int menu()
 //1. 오마하 홀덤을 할지 2. 세븐카드를 할지
 int game_select()
 {
-	short x = 40, y = 23;
+	short x = 40, y = 25;
 	char input;
 
 	while (1)
@@ -145,22 +145,20 @@ int game_select()
 		printf("Which game do you wannt play?");
 		gotoxy(x, y);
 		printf("▶");
-		gotoxy(43, 23);
-		printf("Omaha Holdem");
 		gotoxy(43, 25);
-		printf("Seven card Stud");
+		printf("Omaha Holdem");
 		gotoxy(43, 27);
 		printf("Go Back");
 
 		input = _getch();
 		if (input == 72 || input == 80)
-			move_arrow_key_modified(input, &x, &y, 27, 23);
+			move_arrow_key_modified(input, &x, &y, 27, 25);
 
 		else if (input == 13) {
 			switch (y)
 			{
-			case 23: return 1; break;
-			case 25: return 2; break;
+			//case 23: return 2; break;
+			case 25: return 1; break;
 			case 27: return -1; break;
 			}
 		}

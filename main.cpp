@@ -47,8 +47,8 @@ int main()
 						if (omaha_holdem_result(opponent_choice, user_choice, neutral_card, betting) < 0) break;
 					}
 				}
-				else if (which_game == 2)
-					seven_card_stud();
+				//else if (which_game == 2)
+				//	seven_card_stud();
 				else break;
 			}
 		}
